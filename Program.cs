@@ -192,7 +192,7 @@ namespace SharpBlock {
             IntPtr commandLineArgsWPtr = ReadMovAddress(hProcess, WinAPI.GetProcAddress(kernel32Base, "GetCommandLineW"));
             IntPtr commandLineArgsAPtr = ReadMovAddress(hProcess, WinAPI.GetProcAddress(kernel32Base, "GetCommandLineA"));
 
-            if(commandLineArgsAPtr == IntPtr.Zero || commandLineArgsAPtr == IntPtr.Zero) {
+            if(commandLineArgsAPtr == IntPtr.Zero || commandLineArgsWPtr == IntPtr.Zero) {
                 Console.WriteLine("[-] Failed to updated GetCommandLine pointers, unexpected instruction present");
                 return;
             }
